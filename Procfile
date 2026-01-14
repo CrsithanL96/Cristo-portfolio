@@ -1,1 +1,2 @@
-web: gunicorn NOMBRE_DE_TU_PROYECTO.wsgi
+web: gunicorn config.wsgi:application
+
