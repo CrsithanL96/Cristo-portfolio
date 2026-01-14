@@ -8,6 +8,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-change-me")
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.up.railway.app",
+    "https://web-production-d258e.up.railway.app/",
+]
+
 # --- Apps ---
 INSTALLED_APPS = [
     "django.contrib.admin",
