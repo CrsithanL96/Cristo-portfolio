@@ -1,0 +1,74 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}
+  {% if lang == 'en' %}About{% else %}Sobre mí{% endif %} — Cristhian Ribera Leaños
+{% endblock %}
+
+{% block content %}
+  <div class="hero" style="padding:34px 0 18px">
+    <h1 class="title" style="font-size:26px">
+      {% if lang == 'en' %}About{% else %}Sobre mí{% endif %}
+    </h1>
+    <div class="sub">
+      {% if lang == 'en' %}
+        Photographer · Fashion · Portrait · Landscape · Cinematic narrative
+      {% else %}
+        Fotógrafo · Moda · Retrato · Paisaje · Narrativa cinematográfica
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- FOTO PRINCIPAL (pon tu archivo en /media o súbelo más adelante) -->
+  <!-- Opción rápida: cuando tengas una URL o una imagen subida como "Photo" puedes enlazarla. -->
+  <!-- Por ahora puedes dejar esta parte comentada o usar una imagen temporal. -->
+
+  <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:start">
+    <div class="shot" style="border-radius:18px">
+      <!-- Cambia el src por tu foto cuando la tengas -->
+      <img src="/media/photos/about_1.jpg" alt="Cristhian Ribera Leaños">
+
+    </div>
+
+    <div>
+      <div class="sub" style="max-width:70ch">
+        {% if lang == 'en' %}
+          I photograph people within spaces that overpower them.<br/>
+          I’m drawn to silence, distance, and the tension that appears when no one is acting.<br/><br/>
+
+          My work grows from slow observation and a close relationship with cinema, architecture, and fashion as narrative language.
+          I don’t aim to explain stories, but to leave open fragments — scenes where something has just happened or is about to happen.<br/><br/>
+
+          I work from a restrained and precise aesthetic, where light does not decorate and space carries as much weight as the body.<br/><br/>
+
+          I understand photography as a form of direction: building situations, setting rhythm, and allowing the image to exist beyond the viewer.
+        {% else %}
+          Fotografío personas dentro de espacios que las superan.<br/>
+          Me interesa el silencio, la distancia y la tensión que aparece cuando nadie actúa.<br/><br/>
+
+          Mi trabajo nace de la observación lenta y de una relación directa con el cine, la arquitectura y la moda como lenguaje narrativo.
+          No busco explicar historias, sino dejar fragmentos abiertos: escenas donde algo acaba de ocurrir o está a punto de suceder.<br/><br/>
+
+          Trabajo desde una estética contenida, precisa, donde la luz no adorna y el espacio tiene tanto peso como el cuerpo.<br/><br/>
+
+          Entiendo la fotografía como una forma de dirección: construir situaciones, marcar ritmos y permitir que la imagen respire más allá de quien la mira.
+        {% endif %}
+      </div>
+
+      <div class="sub" style="margin-top:18px;opacity:.95;max-width:70ch">
+        {% if lang == 'en' %}
+          <strong>Short bio:</strong> Cristhian Ribera Leaños is a photographer focused on cinematic visual narrative, portraiture, and contemporary landscape, working between author photography, editorial, and personal projects.
+        {% else %}
+          <strong>Bio corta:</strong> Cristhian Ribera Leaños es fotógrafo especializado en narrativa visual cinematográfica, retrato y paisaje contemporáneo. Trabaja entre fotografía de autor, editorial y proyectos personales.
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGUNDA FOTO OPCIONAL -->
+  <div style="margin-top:22px" class="shot">
+    <!-- Cambia el src por tu segunda foto cuando la tengas -->
+    <img src="/media/photos/about_2.jpg" alt="Cristhian Ribera Leaños">
+
+  </div>
+
+{% endblock %}

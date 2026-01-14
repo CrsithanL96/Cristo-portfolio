@@ -1,0 +1,42 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}Cristhian Ribera Leaños — Portfolio{% endblock %}
+
+{% block content %}
+  <div class="hero">
+    <h1 class="title">
+      {% if lang == 'en' %}Fashion & Cinematic Photographer{% else %}Fotógrafo de moda y cinematográfico{% endif %}
+    </h1>
+    <div class="sub">
+      {% if lang == 'en' %}
+        Images are not meant to please, but to remain.
+      {% else %}
+        Imágenes que no buscan gustar, sino permanecer.
+      {% endif %}
+    </div>
+  </div>
+
+  {% if hero_series %}
+    <a class="card" href="/work/{{ hero_series.slug }}/">
+      {% if hero_series.cover %}
+        <img src="{{ hero_series.cover.url }}"
+             alt="{% if lang == 'en' and hero_series.title_en %}{{ hero_series.title_en }}{% else %}{{ hero_series.title_es }}{% endif %}">
+      {% endif %}
+
+      <div class="meta">
+        <div class="h">
+          {% if lang == 'en' and hero_series.title_en %}{{ hero_series.title_en }}{% else %}{{ hero_series.title_es }}{% endif %}
+        </div>
+        <div class="p">{% if lang == 'en' %}View series{% else %}Ver serie{% endif %}</div>
+      </div>
+    </a>
+  {% else %}
+    <div class="sub">
+      {% if lang == 'en' %}
+        Go to /admin and create your first series.
+      {% else %}
+        Entra en /admin y crea tu primera serie.
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}

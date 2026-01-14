@@ -1,0 +1,40 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}
+  {% if lang == 'en' and series.title_en %}{{ series.title_en }}{% else %}{{ series.title_es }}{% endif %}
+  — Cristhian Ribera Leaños
+{% endblock %}
+
+{% block content %}
+  <div class="hero" style="padding:34px 0 8px">
+    <h1 class="title" style="font-size:26px">
+      {% if lang == 'en' and series.title_en %}{{ series.title_en }}{% else %}{{ series.title_es }}{% endif %}
+    </h1>
+
+    {% if lang == 'en' and series.description_en %}
+      <div class="sub">{{ series.description_en }}</div>
+    {% elif series.description_es %}
+      <div class="sub">{{ series.description_es }}</div>
+    {% endif %}
+  </div>
+
+  <div class="gallery">
+    {% for p in photos %}
+      <div class="shot">
+        <img src="{{ p.image.url }}"
+             alt="{% if lang == 'en' and p.title_en %}{{ p.title_en }}{% elif p.title_es %}{{ p.title_es }}{% else %}Photo{% endif %}">
+
+        <div class="shotmeta">
+          <div class="t">
+            {% if lang == 'en' and p.title_en %}{{ p.title_en }}{% else %}{{ p.title_es }}{% endif %}
+          </div>
+
+          <div class="m">
+            {% if p.year %}{{ p.year }}{% endif %}
+            {% if p.location %}{% if p.year %} · {% endif %}{{ p.location }}{% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

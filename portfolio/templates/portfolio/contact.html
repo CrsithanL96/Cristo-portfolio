@@ -1,0 +1,34 @@
+{{% extends "portfolio/base.html" %}
+
+{% block title %}
+  {% if lang == 'en' %}Contact{% else %}Contacto{% endif %} — Cristhian Ribera Leaños
+{% endblock %}
+
+{% block content %}
+  <div class="hero" style="padding:34px 0 18px">
+    <h1 class="title" style="font-size:26px">
+      {% if lang == 'en' %}Contact{% else %}Contacto{% endif %}
+    </h1>
+    <div class="sub">
+      {% if lang == 'en' %}
+        For collaborations, editorials or commissions.
+      {% else %}
+        Para colaboraciones, editoriales o encargos.
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="shot" style="padding:22px">
+    <div class="sub" style="font-size:15px;line-height:1.8">
+
+      <strong>Email</strong><br>
+      <a href="mailto:cristhiandaw@gmail.com">cristhiandaw@gmail.com</a>
+
+      <br><br>
+
+      <strong>Instagram</strong><br>
+      <a href="https://instagram.com/cristhianr96" target="_blank">@cristhianr96</a>
+
+    </div>
+  </div>
+{% endblock %}

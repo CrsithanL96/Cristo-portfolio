@@ -1,0 +1,38 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}
+  {% if lang == 'en' %}Work{% else %}Trabajo{% endif %} — Cristhian Ribera Leaños
+{% endblock %}
+
+{% block content %}
+  <div class="hero" style="padding:34px 0 18px">
+    <h1 class="title" style="font-size:26px">
+      {% if lang == 'en' %}Work{% else %}Trabajo{% endif %}
+    </h1>
+    <div class="sub">
+      {% if lang == 'en' %}Selected series. No filler.{% else %}Series seleccionadas. Sin relleno.{% endif %}
+    </div>
+  </div>
+
+  <div class="grid">
+    {% for s in series_list %}
+      <a class="card" href="/work/{{ s.slug }}/">
+        {% if s.cover %}
+          <img src="{{ s.cover.url }}" alt="{% if lang == 'en' and s.title_en %}{{ s.title_en }}{% else %}{{ s.title_es }}{% endif %}">
+        {% endif %}
+
+        <div class="meta">
+          <div class="h">
+            {% if lang == 'en' and s.title_en %}{{ s.title_en }}{% else %}{{ s.title_es }}{% endif %}
+          </div>
+
+          {% if lang == 'en' and s.description_en %}
+            <div class="p">{{ s.description_en|truncatechars:120 }}</div>
+          {% elif s.description_es %}
+            <div class="p">{{ s.description_es|truncatechars:120 }}</div>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

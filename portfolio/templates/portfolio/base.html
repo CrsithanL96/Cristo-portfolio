@@ -1,0 +1,64 @@
+{% load i18n %}
+<!doctype html>
+<html lang="{{ lang|default:'es' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Cristo — Portfolio{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}Cinematic fashion & human narrative photography.{% endblock %}">
+  <style>
+    :root{ --bg:#0b0c0f; --fg:#e8e8ea; --mut:#9aa0a6; --line:#1c1f26; --card:#0f1117; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',Arial;background:var(--bg);color:var(--fg);}
+    a{color:inherit;text-decoration:none} a:hover{opacity:.9}
+    .wrap{max-width:1120px;margin:0 auto;padding:22px}
+    .nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:16px 0;gap:14px}
+    .brand{letter-spacing:.18em;font-weight:650;font-size:14px}
+    .menu{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .menu a{color:var(--mut);font-size:14px}
+    .menu a:hover{color:var(--fg)}
+    .lang{display:flex;gap:10px;align-items:center}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:12px;color:var(--mut)}
+    .pill.active{color:var(--fg);border-color:#2a2f3a}
+    .hero{padding:62px 0 22px}
+    .title{font-size:36px;letter-spacing:.02em;margin:0 0 10px;line-height:1.05}
+    .sub{color:var(--mut);max-width:66ch;line-height:1.6}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} .title{font-size:32px} }
+    @media (max-width:600px){ .grid{grid-template-columns:1fr} .wrap{padding:18px} .hero{padding:42px 0 18px} }
+    .card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);transition:transform .12s ease}
+    .card:hover{transform:translateY(-2px)}
+    .card img{width:100%;height:320px;object-fit:cover;display:block}
+    .meta{padding:14px 16px}
+    .h{font-weight:650}
+    .p{color:var(--mut);font-size:13px;margin-top:6px;line-height:1.45}
+    .gallery{display:flex;flex-direction:column;gap:22px;padding:18px 0 30px}
+    .shot{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#0d0f14}
+    .shot img{width:100%;display:block}
+    .shotmeta{padding:12px 14px;border-top:1px solid var(--line)}
+    .shotmeta .t{font-weight:600}
+    .shotmeta .m{color:var(--mut);font-size:13px;margin-top:6px}
+    .footer{border-top:1px solid var(--line);padding:18px 0;color:var(--mut);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="/">CRISTHIAN R.</a>
+      <div class="menu">
+        <a href="/work/">{% if lang == 'en' %}Work{% else %}Trabajo{% endif %}</a>
+        <a href="/about/">{% if lang == 'en' %}About{% else %}Sobre mí{% endif %}</a>
+        <a href="/contact/">{% if lang == 'en' %}Contact{% else %}Contacto{% endif %}</a>
+        <div class="lang">
+          <a class="pill {% if lang == 'es' %}active{% endif %}" href="/set-lang/es/?next={{ request.path }}">ES</a>
+          <a class="pill {% if lang == 'en' %}active{% endif %}" href="/set-lang/en/?next={{ request.path }}">EN</a>
+        </div>
+      </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <div class="footer">© {% now "Y" %} Cristhian Ribera Leaños · Fashion & Cinematic Photographer</div>
+  </div>
+</body>
+</html>
